@@ -19,10 +19,12 @@ import  { AppRoutingModule } from './Module/app-routing/app-routing.module';
 import  { UsersComponent } from './../Components/users/users.component';
 import { UserDetailsComponent } from './../Components/user-details/user-details.component';
 import { UserComponent } from './../Components/user/user.component';
+import { UserService } from './Services/user.service';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, AppRoutingModule ],
   declarations: [ AppComponent, HelloComponent, HeaderComponent , FooterComponent, StringInterpolationComponent,DataBindingComponent, EventBindingComponent, CounterActionsComponent, TwoWayBindingComponent, HomeComponent, BlogComponent, AboutComponent,UserComponent, UsersComponent, UserDetailsComponent,PlaceHolderComponent],
-  bootstrap:    [ AppComponent ]
+  bootstrap:    [ AppComponent ],
+  providers: [UserService]
 })
 export class AppModule { }

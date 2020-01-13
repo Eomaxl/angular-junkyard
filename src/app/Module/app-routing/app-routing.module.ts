@@ -13,7 +13,7 @@ const appRoutes: Routes =[
   { path:'blog',component: BlogComponent },
   { path:'users',component: UsersComponent, children:[
     {path:':id',component:UserDetailsComponent}, {path:'',component:PlaceHolderComponent}]},
-  { path: '**', component:HomeComponent}
+  { path: '**', redirectTo:'/home',pathMatch:'full'}
 
 ]
 

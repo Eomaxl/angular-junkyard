@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { IUSer} from './../../app/Interfaces/iuser';
 
 @Component({
   selector: 'app-user-details',
@@ -7,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./user-details.component.css']
 })
 export class UserDetailsComponent implements OnInit {
-
+  user:IUser;
   users:Array<{id:number,name:string,username:string,email:string}>=[
     {
       "id": 1,
@@ -43,8 +44,11 @@ export class UserDetailsComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.activatedRoute.params.subscribe( (params)=>
-    console.log(params))
+    this.activatedRoute.params.subscribe( (params)=>{
+    this.user = this.users.filter((user)=>{ return user.id === +params.id});
+    
+  });
+  this.activatedRoute.queryParams.subscribe((qs)=> console.log('Got the QS as:',qs));
   }
 
 }
